@@ -416,6 +416,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_DestroyPassthrough(passthroughID);
 #endif
+            return false;
 		}
 
 		/// <summary>
@@ -474,7 +475,8 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 			else
 				return false;
 #endif
-		}
+            return false;
+        }
 
 		/// <summary>
 		/// For modifying the mesh data of a projected passthrough layer.
@@ -545,6 +547,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMesh(passthroughID, (uint)vertexBuffer.Length, vertexBufferXrVector, (uint)indexBuffer.Length, indexBufferUint); ;
 #endif
+            return false;
 		}
 
 		/// <summary>
@@ -623,7 +626,8 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMeshTransform(passthroughID, passthroughFeature.GetXrSpaceFromSpaceType(spaceType), meshXrPose, meshXrScale);
 #endif
-		}
+            return false;
+        }
 
 		/// <summary>
 		/// For modifying layer type and composition depth of a passthrough layer.
@@ -661,7 +665,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetLayerType(passthroughID, layerType, compositionDepth);
 #endif
-
+            return false;
 		}
 
 		/// <summary>
@@ -702,6 +706,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMeshTransformSpace(passthroughID, passthroughFeature.GetXrSpaceFromSpaceType(spaceType));
 #endif
+            return false;
 		}
 
 		/// <summary>
@@ -764,6 +769,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMeshTransformPosition(passthroughID, OpenXRHelper.ToOpenXRVector(trackingSpaceMeshPosition, convertFromUnityToOpenXR));
 #endif
+            return false;
 		}
 
 		/// <summary>
@@ -826,6 +832,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMeshTransformOrientation(passthroughID, OpenXRHelper.ToOpenXRQuaternion(trackingSpaceMeshRotation, convertFromUnityToOpenXR));
 #endif
+            return false;
 		}
 
 		/// <summary>
@@ -867,6 +874,7 @@ namespace VIVE.OpenXR.CompositionLayer.Passthrough
 #if UNITY_ANDROID
 			return passthroughFeature.HTCPassthrough_SetMeshTransformScale(passthroughID, OpenXRHelper.ToOpenXRVector(meshScale, false));
 #endif
+            return false;
 		}
 
 		/// <summary>
